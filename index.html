@@ -12,6 +12,7 @@
    <script src="js/bootstrap.min.js" defer></script>
    <script src="js/bootstrap-datetimepicker.js" defer></script>
    <script src="js/locales/bootstrap-datetimepicker.zh-CN.js" defer></script>
+   <script src="js/run.min.js" defer></script>
 </head>
 <body>
   <div>
@@ -53,81 +54,5 @@
        <h2 style="font-size:8px">8:30-12:00 14:00-18:00</h2>  
     </p>
   </div>
-  <script type="text/javascript">
-  var APP_ID = '3xoifSJjG0HDlCsqmCeTdbYO-MdYXbMMI';
-  var APP_KEY = 'ellWK9mkiC9tIydOK5S4uuno';
-  var today = new Date();
-  var tomorrow = new Date();
-  var maxdate = new Date();
-  tomorrow.setDate(today.getDate()+1);
-  maxdate.setDate(today.getDate()+30);
-  tomorrow.setHours(0);
-  maxdate.setHours(0);
-
-  $('#datetimepicker').datetimepicker({
-    startDate: tomorrow,
-    minuteStep: 30,
-    endDate: maxdate,
-    initialDate: tomorrow,
-    language: "zh-CN"
-  });
-  
-  AV.init({
-      appId: APP_ID,
-      appKey: APP_KEY
-  });
-  function delayer(){
-    window.location = "https://xiyaoeva.github.io/wanchengjiemian/";
-  }
-  function messagess(){
-  	window.alert = function(name){
-        var iframe = document.createElement("IFRAME");
-        iframe.style.display="none";
-        iframe.setAttribute("src", 'data:text/plain,');
-        document.documentElement.appendChild(iframe);
-        window.frames[0].window.alert(name);
-        iframe.parentNode.removeChild(iframe);
-        };
-  }
-  function print(){
-    var a=$("#danwei").val();
-    var b=$("#zhi").val();
-    var c=$("#renshu").val();
-    var d=$("#lianxi").val();
-    var e=$("#lianxidianhua").val();
-    var f=$("#xinxi").val();
-    var g=$("#bumen").val();
-    var h=$("#jiedai").val();
-    if (a.length == 0 || b.length == 0 || c.length == 0 || d.length == 0|| e.length == 0|| f.length == 0|| h.length == 0 ){ 
-       messagess();
-       alert('请填写必要信息！');
-    }else{
-      var Ourguests = AV.Object.extend("Ourguests");
-      var ourguests = new Ourguests();
-      ourguests.set("1",$("#danwei").val())
-      ourguests.set("2",$("#lianxi").val())
-      ourguests.set("3",$("#zhi").val())
-      ourguests.set("4",$("#datetimepicker").val())
-      ourguests.set("5",$("#renshu").val())
-      ourguests.set("6",$("#xinxi").val())
-      ourguests.set("7",$("#lianxidianhua").val())
-      ourguests.set("8",$("#bumen").val())
-      ourguests.set("9",$("#jiedai").val())
-      ourguests.save().then(function() {
-        messagess();
-        alert('提交成功！');
-        jQuery(document).ready(function(){
-         setTimeout('delayer()', 2000);
-       });
-      }, function(error) {
-      messagess();
-      alert('网络不稳定，请稍后重试!');
-      });
-      }
-    }
-     $("#send").click(function(){
-       print();
-    });
-  </script>
 </body>
 </html>
