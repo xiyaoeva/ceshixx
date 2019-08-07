@@ -33,7 +33,20 @@
        <input type="text" id="xinxi" /><br><br>
        <h2 style="font-size:15px">联系电话</h2> 
        <input type="text" id="lianxidianhua" /><br><br>
-       <h2 style="font-size:15px">接待部门</h2> 
+       <h2 style="font-size:15px">接待部门及接待人员</h2> 
+       <select id="bumen">
+          <option value="招商运营部">招商运营部</option>
+          <option value="营销策划部">营销策划部</option>
+          <option value="投资发展部">投资发展部</option>
+          <option value="规划设计部">规划设计部</option>
+          <option value="工程/安全管理部">工程/安全管理部</option>
+          <option value="数字园区技术中心">数字园区技术中心</option>
+          <option value="成本合约部">成本合约部</option>
+          <option value="综合管理部">综合管理部</option>
+          <option value="财务管理部">财务管理部</option>
+          <option value="人力资源/党群部">人力资源/党群部</option>   
+          <option value="风控审计部">风控审计部</option>
+       </select>
        <input type="text" id="jiedai" /><br><br>
        <button name="提交" id="send">提交</button>
        <h2 style="font-size:8px">工作时间：周一至周五</h2> 
@@ -84,8 +97,9 @@
     var d=$("#lianxi").val();
     var e=$("#lianxidianhua").val();
     var f=$("#xinxi").val();
-    var g=$("#jiedai").val();
-    if (a.length == 0 || b.length == 0 || c.length == 0 || d.length == 0|| e.length == 0|| f.length == 0|| g.length == 0|| z.length == 0){ 
+    var g=$("#bumen").val();
+    var h=$("#jiedai").val();
+    if (a.length == 0 || b.length == 0 || c.length == 0 || d.length == 0|| e.length == 0|| f.length == 0|| g.length == 0|| h.length == 0 || z.length == 0){ 
        messagess();
        alert('请填写必要信息！');
     }else{
@@ -98,7 +112,8 @@
       ourguests.set("5",$("#renshu").val())
       ourguests.set("6",$("#xinxi").val())
       ourguests.set("7",$("#lianxidianhua").val())
-      ourguests.set("8",($("#jiedai")+' '+$("#danwei")).val())
+      ourguests.set("8",$("#bumen").val())
+      ourguests.set("9",$("#jiedai").val())
       ourguests.save().then(function() {
         messagess();
         alert('提交成功！');
