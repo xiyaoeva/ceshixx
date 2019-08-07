@@ -19,20 +19,22 @@
     <p style="text-align:center">
       <p><img src="https://sbfz-1257713203.cos.ap-beijing.myqcloud.com/WechatIMG43.png" alt="WechatIMG43.png" width="70" height="70"></p>
       <br>
+        <h2 style="font-size:15px">来访单位</h2> 
+       <input type="text" id="danwei" /><br><br>
        <h2 style="font-size:15px">联系人姓名</font></h2>  
        <input type="text" id="lianxi" /><br><br>
+       <h2 style="font-size:15px">职务</h2>  
+       <input type="text" id="zhi" /><br><br>
        <h2 style="font-size:15px">来访时间</font></h2> 
        <input type="text" value="" id="datetimepicker"  class="form_datetime" data-date-format="yyyy-mm-dd hh:ii"><br><br>
-       <h2 style="font-size:15px">来访单位</h2> 
-       <input type="text" id="danwei" /><br><br>
-       <h2 style="font-size:15px">职位</h2>  
-       <input type="text" id="zhi" /><br><br>
-       <h2 style="font-size:15px">来访总人数</h2>  
+       <h2 style="font-size:15px">来访人数</h2>  
        <input type="text" id="renshu" /><br><br>
+       <h2 style="font-size:15px">来访车辆号牌</h2>  
+       <input type="text" id="xinxi" /><br><br>
        <h2 style="font-size:15px">联系电话</h2> 
        <input type="text" id="lianxidianhua" /><br><br>
-       <h2 style="font-size:15px">备注</h2>  
-       <input type="text" id="xinxi" /><br><br>
+       <h2 style="font-size:15px">接待部门</h2> 
+       <input type="text" id="jiedai" /><br><br>
        <button name="提交" id="send">提交</button>
        <h2 style="font-size:8px">工作时间：周一至周五</h2> 
        <h2 style="font-size:8px">8:30-12:00 14:00-18:00</h2>  
@@ -82,19 +84,21 @@
     var d=$("#lianxi").val();
     var e=$("#lianxidianhua").val();
     var f=$("#xinxi").val();
+    //var g=$("#jiedai").val();
     if (a.length == 0 || b.length == 0 || c.length == 0 || d.length == 0|| e.length == 0){ 
        messagess();
        alert('请填写必要信息！');
     }else{
       var Ourguests = AV.Object.extend("Ourguests");
       var ourguests = new Ourguests();
-      ourguests.set("1",$("#lianxi").val())
-      ourguests.set("2",$("#datetimepicker").val())
-      ourguests.set("3",$("#danwei").val())
-      ourguests.set("4",$("#zhi").val())
+      ourguests.set("1",$("#danwei").val())
+      ourguests.set("2",$("#lianxi").val())
+      ourguests.set("3",$("#zhi").val())
+      ourguests.set("4",$("#datetimepicker").val())
       ourguests.set("5",$("#renshu").val())
-      ourguests.set("6",$("#lianxidianhua").val())
-      ourguests.set("7",$("#xinxi").val())
+      ourguests.set("6",$("#xinxi").val())
+      ourguests.set("7",$("#lianxidianhua").val())
+      ourguests.set("8",$("#jiedai").val())
       ourguests.save().then(function() {
         messagess();
         alert('提交成功！');
