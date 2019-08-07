@@ -9,9 +9,9 @@
    <script src="https://cdnjs.cat.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3.10.0/dist/av-min.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/leancloud-realtime@4.2.0/dist/realtime.browser.min.js"></script>
-   <script src="js/bootstrap.min.js"></script>
-   <script src="js/bootstrap-datetimepicker.js"></script>
-   <script src="js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+   <script src="js/bootstrap.min.js" defer></script>
+   <script src="js/bootstrap-datetimepicker.js" defer></script>
+   <script src="js/locales/bootstrap-datetimepicker.zh-CN.js" defer></script>
 </head>
 <body>
   <div>
@@ -19,7 +19,7 @@
     <p style="text-align:center">
       <p><img src="https://sbfz-1257713203.cos.ap-beijing.myqcloud.com/WechatIMG43.png" alt="WechatIMG43.png" width="70" height="70"></p>
       <br>
-        <h2 style="font-size:15px">来访单</h2> 
+        <h2 style="font-size:15px">来访</h2> 
        <input type="text" id="danwei" /><br><br>
        <h2 style="font-size:15px">联系人姓名</font></h2>  
        <input type="text" id="lianxi" /><br><br>
@@ -90,7 +90,6 @@
         };
   }
   function print(){
-    var z=$("#datetimepicker").val();
     var a=$("#danwei").val();
     var b=$("#zhi").val();
     var c=$("#renshu").val();
@@ -99,7 +98,7 @@
     var f=$("#xinxi").val();
     var g=$("#bumen").val();
     var h=$("#jiedai").val();
-    if (a.length == 0 || b.length == 0 || c.length == 0 || d.length == 0|| e.length == 0|| f.length == 0|| g.length == 0|| h.length == 0 || z.length == 0){ 
+    if (a.length == 0 || b.length == 0 || c.length == 0 || d.length == 0|| e.length == 0|| f.length == 0|| h.length == 0 ){ 
        messagess();
        alert('请填写必要信息！');
     }else{
