@@ -98,7 +98,7 @@
       ourguests.set("5",$("#renshu").val())
       ourguests.set("6",$("#xinxi").val())
       ourguests.set("7",$("#lianxidianhua").val())
-      ourguests.set("8",$("#jiedai")+' '+$("#danwei").val())
+      ourguests.set("8",($("#jiedai")+' '+$("#danwei")).val())
       ourguests.save().then(function() {
         messagess();
         alert('提交成功！');
