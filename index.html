@@ -84,8 +84,8 @@
     var d=$("#lianxi").val();
     var e=$("#lianxidianhua").val();
     var f=$("#xinxi").val();
-    //var g=$("#jiedai").val();
-    if (a.length == 0 || b.length == 0 || c.length == 0 || d.length == 0|| e.length == 0){ 
+    var g=$("#jiedai").val();
+    if (a.length == 0 || b.length == 0 || c.length == 0 || d.length == 0|| e.length == 0|| f.length == 0|| g.length == 0|| z.length == 0){ 
        messagess();
        alert('请填写必要信息！');
     }else{
@@ -98,7 +98,7 @@
       ourguests.set("5",$("#renshu").val())
       ourguests.set("6",$("#xinxi").val())
       ourguests.set("7",$("#lianxidianhua").val())
-      ourguests.set("8",$("#jiedai").val())
+      ourguests.set("8",$("#jiedai")+' '+$("#danwei").val())
       ourguests.save().then(function() {
         messagess();
         alert('提交成功！');
